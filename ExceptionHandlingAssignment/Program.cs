@@ -7,9 +7,14 @@ using System.Threading.Tasks;
 namespace ExceptionHandlingAssignment
 {
     internal class Program
+
     {
+
         static void Main(string[] args)
+
         {
+            
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("===============Welcome===============");
             try
             {
@@ -17,7 +22,10 @@ namespace ExceptionHandlingAssignment
                 int YourAge = 0;
                 while (!ValidAge)
                 {
+                    
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Please type in your age");
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     ValidAge = int.TryParse(Console.ReadLine(), out YourAge);
                     if (!ValidAge) throw new Exception();
 
@@ -43,6 +51,7 @@ namespace ExceptionHandlingAssignment
 
             catch (Exceptions.NegativeException)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Positive Values only\n No Zeroes");
                 Console.ReadLine();
 
@@ -50,6 +59,7 @@ namespace ExceptionHandlingAssignment
             }
             catch (Exceptions.ZeroException)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Your age can't be zero");
                 Console.ReadLine();
                 
@@ -57,12 +67,14 @@ namespace ExceptionHandlingAssignment
             }
             catch (Exceptions.TooBigException)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("That is not possible!!!Are you a vampire?");
                 Console.ReadLine();
                 
             }
             catch (Exception)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error!Please check your values!");
                 Console.ReadLine();
                 return;
@@ -70,9 +82,5 @@ namespace ExceptionHandlingAssignment
             Console.WriteLine("===============GoodBye===============");
             Console.ReadLine();
         }
-        
-
-
-        }
     }
-
+}
